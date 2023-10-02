@@ -682,7 +682,7 @@ resource "google_compute_shared_vpc_service_project" "service2_qa" {
 # Create VMs in Service Project PROD-SERV-PROJ-1
 resource "google_compute_instance" "vm_machine1" {
   project      = var.global_service_project_ids.prod_serv_proj_1
-  zone         = "southamerica-west1-a"
+  zone         = "us-west1-a"
   name         = "my-demo-vm-1"
   machine_type = "e2-medium"
   tags         = ["ssh"]
@@ -703,7 +703,7 @@ resource "google_compute_instance" "vm_machine1" {
 
 resource "google_compute_instance" "vm_machine2" {
   project      = var.global_service_project_ids.dev_serv_proj_1
-  zone         = "southamerica-west1-a"
+  zone         = "us-west1-a"
   name         = "my-demo-vm-2"
   machine_type = "e2-medium"
   tags         = ["ssh"]
@@ -723,7 +723,7 @@ resource "google_compute_instance" "vm_machine2" {
 
 resource "google_compute_instance" "vm_machine3" {
   project      = var.global_service_project_ids.qa_serv_proj_1
-  zone         = "southamerica-west1-a"
+  zone         = "us-west1-a"
   name         = "my-demo-vm-3"
   machine_type = "e2-medium"
   tags         = ["ssh"]
