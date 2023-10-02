@@ -89,7 +89,7 @@ resource "google_compute_subnetwork" "hub-vpc_subnet2" {
   project       = var.global_project_ids.hub
   name          = var.vpc_subnets_name.name-hub-subnet-2
   ip_cidr_range = var.vpc_subnets_cidr.cidr-hub-subnet-2
-  region        = "us-west1"
+  region        = "us-central1"
   network       = google_compute_network.hub-vpc.id
 }
 
@@ -106,7 +106,7 @@ resource "google_compute_subnetwork" "prod-vpc_subnet2" {
   project       = var.global_project_ids.prod
   name          = var.vpc_subnets_name.name-prod-subnet-2
   ip_cidr_range = var.vpc_subnets_cidr.cidr-prod-subnet-2
-  region        = "us-east1"
+  region        = "us-central1"
   network       = google_compute_network.prod-vpc.id
 }
 
@@ -123,7 +123,7 @@ resource "google_compute_subnetwork" "dev-vpc_subnet2" {
   project       = var.global_project_ids.dev
   name          = var.vpc_subnets_name.name-dev-subnet-2
   ip_cidr_range = var.vpc_subnets_cidr.cidr-dev-subnet-2
-  region        = "us-east1"
+  region        = "us-central1"
   network       = google_compute_network.dev-vpc.id
 }
 
@@ -140,7 +140,7 @@ resource "google_compute_subnetwork" "qa-vpc_subnet2" {
   project       = var.global_project_ids.qa
   name          = var.vpc_subnets_name.name-qa-subnet-2
   ip_cidr_range = var.vpc_subnets_cidr.cidr-qa-subnet-2
-  region        = "us-east1"
+  region        = "us-central1"
   network       = google_compute_network.qa-vpc.id
 }
 
