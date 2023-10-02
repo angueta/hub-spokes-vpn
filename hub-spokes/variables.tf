@@ -73,9 +73,9 @@ variable "vpc_subnets_cidr" {
 }
 
 variable "region" {
-  description = "VPC region."
+  description = "VPC region"
   type        = string
-  default     = "southamerica-west1"
+  default     = "us-west1"
 }
 
 variable "asn" {
