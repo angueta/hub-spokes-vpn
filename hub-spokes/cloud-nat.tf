@@ -15,7 +15,7 @@ resource "google_compute_router" "router-nat-hub" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-hub" {
   name                               = "cloud-nat-hub"
-  router = google_compute_router.router-nat-hub
+  router = google_compute_router.router-nat-hub.name
   region  = var.region
   #router                             = google_compute_router.router.name
   #region                             = google_compute_router.router.region
