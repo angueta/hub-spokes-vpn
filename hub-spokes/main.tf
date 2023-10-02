@@ -156,7 +156,7 @@ resource "google_compute_router" "router1" {
     advertise_mode    = "CUSTOM"
     advertised_groups = ["ALL_SUBNETS"]
     advertised_ip_ranges {
-      range = "192.168.0.0/16"
+      range = "10.239.0.0/20"
     }
   }
 
