@@ -58,17 +58,17 @@ variable "vpc_subnets_cidr" {
   description = "subnets and CIDRs"
   type        = map(string)
   default = {
-    cidr-hub-subnet-1 = "10.0.1.0/24"
-    cidr-hub-subnet-2 = "10.0.2.0/24"
+    cidr-hub-subnet-1 = "10.239.0.0/24"
+    cidr-hub-subnet-2 = "10.239.1.0/24"
 
-    cidr-prod-subnet-1 = "192.168.1.0/24"
-    cidr-prod-subnet-2 = "192.168.2.0/24"
+    cidr-prod-subnet-1 = "10.239.4.0/24"
+    cidr-prod-subnet-2 = "10.239.5.0/24"
 
-    cidr-dev-subnet-1 = "192.168.101.0/24"
-    cidr-dev-subnet-2 = "192.168.102.0/24"
+    cidr-dev-subnet-1 = "10.239.8.0/24"
+    cidr-dev-subnet-2 = "10.239.9.0/24"
 
-    cidr-qa-subnet-1 = "192.168.201.0/24"
-    cidr-qa-subnet-2 = "192.168.202.0/24"
+    cidr-qa-subnet-1 = "10.239.12.0/24"
+    cidr-qa-subnet-2 = "10.239.13.0/24"
   }
 }
 
