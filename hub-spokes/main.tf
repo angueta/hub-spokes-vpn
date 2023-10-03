@@ -754,11 +754,11 @@ resource "google_compute_router" "router-nat-1-hub" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-1-hub" {
   name                               = "cloud-nat-1-hub"
-  router = google_compute_router.router-nat-1-hub.name
-  region  = var.regions.primary
+  router                             = google_compute_router.router-nat-1-hub.name
+  region                             = var.regions.primary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
-  project = var.global_project_ids.hub
+  project                            = var.global_project_ids.hub
 
 
   log_config {
@@ -778,11 +778,11 @@ resource "google_compute_router" "router-nat-2-hub" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-2-hub" {
   name                               = "cloud-nat-2-hub"
-  router = google_compute_router.router-nat-2-hub.name
-  region  = var.regions.secondary
+  router                             = google_compute_router.router-nat-2-hub.name
+  region                             = var.regions.secondary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
-  project = var.global_project_ids.hub
+  project                            = var.global_project_ids.hub
 
 
   log_config {
@@ -806,11 +806,11 @@ resource "google_compute_router" "router-nat-1-prod" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-1-prod" {
   name                               = "cloud-nat-1-prod"
-  router = google_compute_router.router-nat-1-prod.name
-  region  = var.regions.primary
+  router                             = google_compute_router.router-nat-1-prod.name
+  region                             = var.regions.primary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
-  project = var.global_project_ids.prod
+  project                            = var.global_project_ids.prod
 
 
   log_config {
@@ -830,12 +830,12 @@ resource "google_compute_router" "router-nat-2-prod" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-2-prod" {
   name                               = "cloud-nat-2-prod"
-  router = google_compute_router.router-nat-2-prod.name
-  region  = var.regions.secondary
+  router                             = google_compute_router.router-nat-2-prod.name
+  region                             = var.regions.secondary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
-  project = var.global_project_ids.prod
- 
+  project                            = var.global_project_ids.prod
+
 
   log_config {
     enable = true
@@ -858,12 +858,12 @@ resource "google_compute_router" "router-nat-1-dev" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-1-dev" {
   name                               = "cloud-nat-1-dev"
-  router = google_compute_router.router-nat-1-dev.name
-  region  = var.regions.primary
+  router                             = google_compute_router.router-nat-1-dev.name
+  region                             = var.regions.primary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
-  project = var.global_project_ids.dev
-  
+  project                            = var.global_project_ids.dev
+
 
   log_config {
     enable = true
@@ -882,12 +882,12 @@ resource "google_compute_router" "router-nat-2-dev" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-2-dev" {
   name                               = "cloud-nat-2-dev"
-  router = google_compute_router.router-nat-2-dev.name
-  region  = var.regions.secondary
+  router                             = google_compute_router.router-nat-2-dev.name
+  region                             = var.regions.secondary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
-  project = var.global_project_ids.dev
- 
+  project                            = var.global_project_ids.dev
+
 
   log_config {
     enable = true
@@ -912,12 +912,12 @@ resource "google_compute_router" "router-nat-1-qa" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-1-qa" {
   name                               = "cloud-nat-1-qa"
-  router = google_compute_router.router-nat-1-qa.name
-  region  = var.regions.primary
+  router                             = google_compute_router.router-nat-1-qa.name
+  region                             = var.regions.primary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
-  project = var.global_project_ids.qa
-  
+  project                            = var.global_project_ids.qa
+
 
   log_config {
     enable = true
@@ -936,12 +936,12 @@ resource "google_compute_router" "router-nat-2-qa" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-2-qa" {
   name                               = "cloud-nat-2-qa"
-  router = google_compute_router.router-nat-2-qa.name
-  region  = var.regions.secondary
+  router                             = google_compute_router.router-nat-2-qa.name
+  region                             = var.regions.secondary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
-  project = var.global_project_ids.qa
- 
+  project                            = var.global_project_ids.qa
+
 
   log_config {
     enable = true
