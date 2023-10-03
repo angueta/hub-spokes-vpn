@@ -778,7 +778,7 @@ resource "google_compute_router" "router-nat-2-hub" {
 #### Creamos cloud NAT hub
 resource "google_compute_router_nat" "nat-2-hub" {
   name                               = "cloud-nat-2-hub"
-  router = google_compute_router.router-nat-1-hub.name
+  router = google_compute_router.router-nat-2-hub.name
   region  = var.regions.secondary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
