@@ -82,10 +82,10 @@ variable "asn" {
   description = "VPC ASNs"
   type        = map(string)
   default = {
-    hub  = "64514"
-    prod = "64515"
-    dev  = "64516"
-    qa   = "64517"
+    hub  = "65427"
+    prod = "65428"
+    dev  = "65429"
+    qa   = "65430"
   }
 }
 
