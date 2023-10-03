@@ -89,3 +89,11 @@ variable "asn" {
   }
 }
 
+variable "regions" {
+  description = "regions for deployments"
+  type        = map(string)
+  default = {
+    primary  = "us-west1"
+    secondary = "us-central1"
+  }
+}

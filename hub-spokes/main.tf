@@ -744,22 +744,46 @@ resource "google_compute_instance" "vm_machine3" {
 ##########################################################
 
 #### 
-resource "google_compute_router" "router-nat-hub" {
-  name    = "router-nat-hub"
-  region  = var.region
+resource "google_compute_router" "router-nat-1-hub" {
+  name    = "router-nat-1-hub"
+  region  = var.regions.primary
   network = google_compute_network.hub-vpc.self_link
   project = var.global_project_ids.hub
 }
 
 #### Creamos cloud NAT hub
-resource "google_compute_router_nat" "nat-hub" {
-  name                               = "cloud-nat-hub"
-  router = google_compute_router.router-nat-hub.name
-  region  = var.region
+resource "google_compute_router_nat" "nat-1-hub" {
+  name                               = "cloud-nat-1-hub"
+  router = google_compute_router.router-nat-1-hub.name
+  region  = var.regions.primary
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
   project = var.global_project_ids.hub
-  #project = google_project.prj-hub.project_id
+
+
+  log_config {
+    enable = true
+    filter = "ERRORS_ONLY"
+  }
+}
+
+#### 
+resource "google_compute_router" "router-nat-2-hub" {
+  name    = "router-nat-2-hub"
+  region  = var.regions.secondary
+  network = google_compute_network.hub-vpc.self_link
+  project = var.global_project_ids.hub
+}
+
+#### Creamos cloud NAT hub
+resource "google_compute_router_nat" "nat-2-hub" {
+  name                               = "cloud-nat-2-hub"
+  router = google_compute_router.router-nat-1-hub.name
+  region  = var.regions.secondary
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  project = var.global_project_ids.hub
+
 
   log_config {
     enable = true
@@ -768,5 +792,159 @@ resource "google_compute_router_nat" "nat-hub" {
 }
 
 ##########################################################
-##### Required resources for Clod NAT on Spokes PRJs
+##### Required resources for Clod NAT on PROJECT PRODUCTION
 ##########################################################
+
+#### 
+resource "google_compute_router" "router-nat-1-prod" {
+  name    = "router-nat-1-prod"
+  region  = var.regions.primary
+  network = google_compute_network.prod-vpc.self_link
+  project = var.global_project_ids.prod
+}
+
+#### Creamos cloud NAT hub
+resource "google_compute_router_nat" "nat-1-prod" {
+  name                               = "cloud-nat-1-prod"
+  router = google_compute_router.router-nat-1-prod.name
+  region  = var.regions.primary
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  project = var.global_project_ids.prod
+
+
+  log_config {
+    enable = true
+    filter = "ERRORS_ONLY"
+  }
+}
+
+#### 
+resource "google_compute_router" "router-nat-2-prod" {
+  name    = "router-nat-2-prod"
+  region  = var.regions.secondary
+  network = google_compute_network.prod-vpc.self_link
+  project = var.global_project_ids.prod
+}
+
+#### Creamos cloud NAT hub
+resource "google_compute_router_nat" "nat-2-prod" {
+  name                               = "cloud-nat-2-prod"
+  router = google_compute_router.router-nat-2-prod.name
+  region  = var.regions.secondary
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  project = var.global_project_ids.prod
+ 
+
+  log_config {
+    enable = true
+    filter = "ERRORS_ONLY"
+  }
+}
+
+##########################################################
+##### Required resources for Clod NAT on DEVELOPMENT PRODUCTION
+##########################################################
+
+#### 
+resource "google_compute_router" "router-nat-1-dev" {
+  name    = "router-nat-1-dev"
+  region  = var.regions.primary
+  network = google_compute_network.dev-vpc.self_link
+  project = var.global_project_ids.dev
+}
+
+#### Creamos cloud NAT hub
+resource "google_compute_router_nat" "nat-1-dev" {
+  name                               = "cloud-nat-1-dev"
+  router = google_compute_router.router-nat-1-dev.name
+  region  = var.regions.primary
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  project = var.global_project_ids.dev
+  
+
+  log_config {
+    enable = true
+    filter = "ERRORS_ONLY"
+  }
+}
+
+#### 
+resource "google_compute_router" "router-nat-2-dev" {
+  name    = "router-nat-2-dev"
+  region  = var.regions.secondary
+  network = google_compute_network.dev-vpc.self_link
+  project = var.global_project_ids.dev
+}
+
+#### Creamos cloud NAT hub
+resource "google_compute_router_nat" "nat-2-dev" {
+  name                               = "cloud-nat-2-dev"
+  router = google_compute_router.router-nat-2-dev.name
+  region  = var.regions.secondary
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  project = var.global_project_ids.dev
+ 
+
+  log_config {
+    enable = true
+    filter = "ERRORS_ONLY"
+  }
+}
+
+
+
+##########################################################
+##### Required resources for Clod NAT on QA PRODUCTION
+##########################################################
+
+#### 
+resource "google_compute_router" "router-nat-1-qa" {
+  name    = "router-nat-1-qa"
+  region  = var.regions.primary
+  network = google_compute_network.qa-vpc.self_link
+  project = var.global_project_ids.qa
+}
+
+#### Creamos cloud NAT hub
+resource "google_compute_router_nat" "nat-1-qa" {
+  name                               = "cloud-nat-1-qa"
+  router = google_compute_router.router-nat-1-qa.name
+  region  = var.regions.primary
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  project = var.global_project_ids.qa
+  
+
+  log_config {
+    enable = true
+    filter = "ERRORS_ONLY"
+  }
+}
+
+#### 
+resource "google_compute_router" "router-nat-2-qa" {
+  name    = "router-nat-2-qa"
+  region  = var.regions.secondary
+  network = google_compute_network.qa-vpc.self_link
+  project = var.global_project_ids.qa
+}
+
+#### Creamos cloud NAT hub
+resource "google_compute_router_nat" "nat-2-qa" {
+  name                               = "cloud-nat-2-qa"
+  router = google_compute_router.router-nat-2-qa.name
+  region  = var.regions.secondary
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  project = var.global_project_ids.qa
+ 
+
+  log_config {
+    enable = true
+    filter = "ERRORS_ONLY"
+  }
+}
