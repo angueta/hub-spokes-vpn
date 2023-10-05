@@ -16,10 +16,10 @@ variable "global_project_ids" {
   description = "Project ids"
   type        = map(string)
   default = {
-    hub  = "prd-promartec-hub-project"
-    prod = "prd-promartec-prd-project"
-    qa   = "qa-promartec-qa-project"
-    dev  = "dev-promartec-dev-project"
+    hub  = "hub-project-397918"
+    prod = "prod-project-397918"
+    qa   = "qa-project-397918"
+    dev  = "dev-project-397918"
   }
 }
 
@@ -27,12 +27,13 @@ variable "global_service_project_ids" {
   description = "Service Project ids"
   type        = map(string)
   default = {
-    prod_serv_proj_1 = "prd-promartec-service-project1"
-    prod_serv_proj_2 = "prd-promartec-service-project2"
-    dev_serv_proj_1  = "dev-promartec-service-project1"
-    dev_serv_proj_2  = "dev-promartec-service-project2"
-    qa_serv_proj_1   = "qa-promartec-service-project1"
-    qa_serv_proj_2   = "qa-promartec-service-project2"
+    prod_serv_proj_1 = "prod-service-project1-398201"
+    prod_serv_proj_2 = "prod-service-project2-398201"
+    dev_serv_proj_1  = "dev-service-project1-398201"
+    dev_serv_proj_2  = "dev-service-project2-398201"
+    qa_serv_proj_1   = "qa-service-project1"
+    qa_serv_proj_2   = "qa-service-project2"
+
   }
 }
 
