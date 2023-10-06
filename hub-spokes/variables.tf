@@ -16,10 +16,10 @@ variable "global_project_ids" {
   description = "Project ids"
   type        = map(string)
   default = {
-    hub  = "hub-project-397918"
-    prod = "prod-project-397918"
-    qa   = "qa-project-397918"
-    dev  = "dev-project-397918"
+    hub  = "central-hub-401222"
+    prod = "onpremise-401222"
+    qa   = "qa-pagos"
+    dev  = "dev-pagos"
   }
 }
 
@@ -27,12 +27,12 @@ variable "global_service_project_ids" {
   description = "Service Project ids"
   type        = map(string)
   default = {
-    prod_serv_proj_1 = "prod-service-project1-398201"
-    prod_serv_proj_2 = "prod-service-project2-398201"
-    dev_serv_proj_1  = "dev-service-project1-398201"
-    dev_serv_proj_2  = "dev-service-project2-398201"
-    qa_serv_proj_1   = "qa-service-project1"
-    qa_serv_proj_2   = "qa-service-project2"
+    prod_serv_proj_1 = "onpremise-sp-1"
+    prod_serv_proj_2 = "onpremise-sp-2"
+    dev_serv_proj_1  = "dev-pagos-sp-1"
+    dev_serv_proj_2  = "dev-pagos-sp-2"
+    qa_serv_proj_1   = "qa-pagos-sp-1"
+    qa_serv_proj_2   = "qa-pagos-sp-2"
 
   }
 }
@@ -44,8 +44,8 @@ variable "vpc_subnets_name" {
     name-hub-subnet-1 = "hub-subnet-1"
     name-hub-subnet-2 = "hub-subnet-2"
 
-    name-prod-subnet-1 = "prod-subnet-1"
-    name-prod-subnet-2 = "prod-subnet-2"
+    name-prod-subnet-1 = "onprem-subnet-1"
+    name-prod-subnet-2 = "onprem-subnet-2"
 
     name-dev-subnet-1 = "dev-subnet-1"
     name-dev-subnet-2 = "dev-subnet-2"
@@ -76,7 +76,7 @@ variable "vpc_subnets_cidr" {
 variable "region" {
   description = "VPC region"
   type        = string
-  default     = "us-west1"
+  default     = "southamerica-west1"
 }
 
 variable "asn" {
@@ -94,7 +94,7 @@ variable "regions" {
   description = "regions for deployments"
   type        = map(string)
   default = {
-    primary   = "us-west1"
+    primary   = "southamerica-west1"
     secondary = "us-central1"
   }
 }
